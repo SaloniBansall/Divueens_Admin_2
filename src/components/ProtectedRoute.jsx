@@ -1,13 +1,23 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Navigate } from 'react-router-dom'
 
-// import { PanelContext } from '../context/PanelContext';
+import { PanelContext } from '../context/PanelContext';
 
 const ProtectedRoute = ({ children }) => {
  
-  // const { isAuthenticated } = useContext(PanelContext);
+  // const { isAuthenticated, checkAuthStatus } = useContext(PanelContext);
 
-  return  localStorage.getItem('token')  ? children : <Navigate to="/login" />;
+  // useEffect(() => {
+  //   checkAuthStatus();
+  // }, [checkAuthStatus]);
+
+  // if (!isAuthenticated) {
+  //   return <Navigate to="/login" />;
+  // }
+
+  // return children;
+
+  return  localStorage.getItem('token')  ? children : <Navigate to="/login" /> ;
 
 
 }

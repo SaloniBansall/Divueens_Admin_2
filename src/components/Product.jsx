@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { BsPlusCircle } from 'react-icons/bs'
 import { Link, useNavigate } from 'react-router-dom'
+import Layout from './Layout';
 const apiUrl = import.meta.env.VITE_API_URL;
 
 
@@ -32,9 +33,10 @@ const Product = () => {
         }).then((res) => {
             res.json().then(data => {
                 // setProductList(data)
+                // setProductList(prevProducts => prevProducts.filter(product => product._id !== _id));
                 if (productList.length > 0) {
-                    setProductList(prevProducts => prevProducts.filter(product => product._id !== data._id));
-                    console.log(data, "product deleted")
+                    setProductList(prevProducts => prevProducts.filter(product => product._id !== _id));
+                    console.log(data._id, "product deleted")
                 }
             })
         }).catch(e => { console.log('Error:', e) })
@@ -45,7 +47,7 @@ const Product = () => {
 
     return (
 
-        <>
+        <Layout>
             <div className="w-full h-full">
 
                 <h2 className='text-2xl  p-4 text-center font-semibold'>List Of Products</h2>
@@ -72,7 +74,7 @@ const Product = () => {
                 </div>
                 {/* </div> */}
             </div>
-        </>
+        </Layout>
     )
 }
 

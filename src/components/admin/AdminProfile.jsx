@@ -3,6 +3,7 @@ import profileImage from '../../assets/admin.jpg';
 import { Link, useNavigate, } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { PanelContext } from '../../context/PanelContext';
+import Layout from '../Layout';
 const apiUrl = import.meta.env.VITE_API_URL;
 const domain = import.meta.env.VITE_DOMAIN;
 
@@ -71,7 +72,7 @@ const AdminProfile = () => {
 
 
     return (
-        <>
+        <Layout>
 
             <div className="justify-center items-start min-h-screen bg-gray-100 py-8 ml-[3rem] mr-[3rem]">
                 {/* Left Side - Profile Information */}
@@ -161,7 +162,7 @@ const AdminProfile = () => {
                 </div>
             </div>
 
-        </>
+        </Layout>
     )
 }
 

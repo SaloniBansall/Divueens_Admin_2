@@ -3,23 +3,24 @@ import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { PanelContext } from '../context/PanelContext';
+import { ColorRing } from 'react-loader-spinner'; // Import the spinner component
+import Navbar from './Navbar';
 const apiUrl = import.meta.env.VITE_API_URL;
 
 const Login = () => {
-
-  const {isAuthenticated, setIsAuthenticated} = useContext(PanelContext)
+  const { isAuthenticated, setIsAuthenticated } = useContext(PanelContext);
 
   const signInGoogle = async () => {
     console.log('google btn clicked')
     window.location.href = `${apiUrl}/auth/google`; //redirecting user to the server
   }
 
-
-  const navigator = useNavigate()
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
+  const [loading, setLoading] = useState(false); // State to manage loading spinner
 
   const { email, password } = formData;
 
@@ -28,8 +29,8 @@ const Login = () => {
   };
 
   const onSubmit = async (e) => {
-
     e.preventDefault();
+    setLoading(true); // Show spinner on form submission
 
     try {
       const res = await fetch(`${apiUrl}/auth/login`, {
@@ -40,25 +41,20 @@ const Login = () => {
         body: JSON.stringify(formData),
       });
       const data = await res.json();
-      
+
       if (res.ok) {
-        console.log('token:login', data.authToken)
         localStorage.setItem('token', data.authToken);
         localStorage.setItem('admin-data', JSON.stringify(data.user));
-        setIsAuthenticated(true)
+        setIsAuthenticated(true);
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "logged in successfully!",
+          title: "Logged in successfully!",
           showConfirmButton: false,
           timer: 1500
         });
-
-        console.log('Logged in successfully');
-        navigator("/admin-profile")
-
+        navigate("/admin-profile");
       } else {
-        // setIsAuthenticated(false)
         Swal.fire({
           position: "center",
           icon: "warning",
@@ -66,17 +62,35 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500
         });
-        navigator("/login")
-        
+        navigate("/login");
       }
-
     } catch (error) {
-      console.error('login error: ',error.message,)
+      console.error('Login error: ', error.message);
+    } finally {
+      setLoading(false); // Hide spinner after login process is complete
     }
   };
 
   return (
-    <div className="p-4 h-screen flex rounded items-center justify-center bg-gray-100">
+
+    <>
+
+<Navbar/>
+   
+    <div className="relative p-4 h-screen flex rounded items-center justify-center bg-gray-100">
+      {loading && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <ColorRing
+            visible={true}
+            height="80"
+            width="80"
+            ariaLabel="color-ring-loading"
+            wrapperStyle={{}}
+            wrapperClass="color-ring-wrapper"
+            colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+          />
+        </div>
+      )}
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
         <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
         <form onSubmit={onSubmit}>
@@ -108,22 +122,30 @@ const Login = () => {
               required
             />
           </div>
-          <button onClick={onSubmit} type="submit" className="w-full mb-2 bg-pink-500 text-white py-2 rounded hover:bg-white hover:border-pink-300 border-2 hover:text-pink-500">
+          <button
+            type="submit"
+            className="w-full mb-2 bg-pink-500 text-white py-2 rounded hover:bg-white hover:border-pink-300 border-2 hover:text-pink-500"
+            disabled={loading} // Disable button while loading
+          >
             Login
           </button>
-          <Link className='text-center block hover:underline' to={"/signup"}>Already an existing user</Link>
+          <Link className='text-center block hover:underline' to={"/signup"}>
+            Already an existing user
+          </Link>
           <span className='text-center block m-3 text-xl'>or</span>
           <button
             type='button'
             onClick={signInGoogle}
-            className="w-full py-2 no-underline text-black-400 px-4 hover:text-pink hover:border-pink-300 flex flex-row items-center justify-center gap-2 text-md border-2  rounded-md  focus:outline-none  "
+            className="w-full py-2 no-underline text-black-400 px-4 hover:text-pink hover:border-pink-300 flex flex-row items-center justify-center gap-2 text-md border-2 rounded-md focus:outline-none"
           >
-            <FcGoogle /> <span className=''>Sign in with Google</span>
+            <FcGoogle /> <span>Sign in with Google</span>
           </button>
         </form>
       </div>
     </div>
+    </>
   );
 };
 
 export default Login;
+

@@ -20,6 +20,7 @@ const Product = () => {
 
     // deleteProduct
     const deleteProduct = (_id) => {
+        console.log('id: vite', _id)
         const token = localStorage.getItem('token')
         // console.log(_id, localStorage.getItem('token'),":id")
         fetch(`${apiUrl}/api/delete/${_id}`, {

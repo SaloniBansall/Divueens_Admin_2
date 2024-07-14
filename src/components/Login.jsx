@@ -9,9 +9,11 @@ const apiUrl = import.meta.env.VITE_API_URL;
 
 const Login = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(PanelContext);
+  const [loading, setLoading] = useState(false); // State to manage loading spinner
 
   const signInGoogle = async () => {
     console.log('google btn clicked')
+    setLoading(true)
     window.location.href = `${apiUrl}/auth/google`; //redirecting user to the server
   }
 
@@ -20,7 +22,6 @@ const Login = () => {
     email: '',
     password: '',
   });
-  const [loading, setLoading] = useState(false); // State to manage loading spinner
 
   const { email, password } = formData;
 
@@ -87,7 +88,7 @@ const Login = () => {
             ariaLabel="color-ring-loading"
             wrapperStyle={{}}
             wrapperClass="color-ring-wrapper"
-            colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+            colors={['#eee', '#f47e60', '#f8b26a', '#eee', '#849b80']}
           />
         </div>
       )}

@@ -1,19 +1,46 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FaUser } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router-dom';
 import { PanelContext } from '../context/PanelContext';
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const Navbar = () => {
 
     const location = useLocation();
-    const { logout, isAuthenticated, checkAuthStatus } = useContext(PanelContext);
+    const [isAuthenticated, setIsAuthenticated] = useState(false)
+    const { logout } = useContext(PanelContext);
    
     useEffect(() => {
-        checkAuthStatus();
-    }, [location.pathname, isAuthenticated, checkAuthStatus]);
+
+        const token = localStorage.getItem('token')
+
+        const checkToken = async () => {
+            const response = await fetch(`${apiUrl}/auth/verify-token`, {
+            headers: {
+              'Authorization': `Bearer ${token}`
+            }
+          })
+          const data = await response.json()
+          if(data.user){
+            console.log(data.user, 'user nav')
+                setIsAuthenticated(true)
+          }else{
+              setIsAuthenticated(false)
+          }
+        }
+        
+        checkToken()
+        
+    }, []);
+
+//     if(localStorage.getItem('token')){
+//         setIsAuthenticated(true)
+//   }else{
+//       setIsAuthenticated(true)
+//   }
 
     return (
-        <nav className="flex justify-between min-h-[12vh] items-center py-2 px-[1rem] text-black bg-white border-b-pink-400 border-2 md:flex-row flex-col">
+        <nav className="flex justify-between min-h-[12vh] items-center py-2 px-[.5rem] text-black bg-white border-b-pink-400 border-2 md:flex-row flex-col">
             <div className="flex items-center">
                 <h2 className='text-lg font-bold mx-5'>Divueens <span className='text-pink-500'> Administration </span> </h2>
             </div>

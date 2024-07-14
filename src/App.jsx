@@ -14,6 +14,7 @@ import { PanelContext } from './context/PanelContext'
 import Navbar from './components/Navbar'
 import NotAuthorizedPage from './components/NotAuthorizedPage'
 import Layout from './components/Layout'
+import NotFound from './components/NotFound'
 
 
 function App() {
@@ -49,9 +50,9 @@ function App() {
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/signup" element={<SignUp />} />
         <Route exact path="/access-denied" element={<NotAuthorizedPage />} />
-      </Routes>
+      {/* </Routes>
 
-      <Routes>
+      <Routes> */}
         {/* private routes */}
         <Route exact path="/" element={<ProtectedRoute> <Product /> </ProtectedRoute>} />
         <Route exact path="/banner" element={<ProtectedRoute> <Banner /> </ProtectedRoute>} />
@@ -59,6 +60,9 @@ function App() {
         <Route exact path="/update/:_id" element={<ProtectedRoute> <ChangeProduct /> </ProtectedRoute>} />
         <Route exact path="/admin-profile" element={<ProtectedRoute> <AdminProfile /> </ProtectedRoute>} />
 
+        {/* chatching routes which are not defined */}
+        <Route path="*" element={<NotFound />} />
+        
       </Routes>
 
     </>

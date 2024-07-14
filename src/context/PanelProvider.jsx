@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { PanelContext } from './PanelContext'
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -57,8 +57,8 @@ const PanelProvider = ({children}) => {
   const logout = () => {
     localStorage.removeItem('token');
     setIsAuthenticated(false);
-    window.location.href = '/login'; // Redirect to login or any other page
-    //  navigator("/login")
+    // window.location.href = '/login'; // Redirect to login or any other page
+     navigator("/login")
     
   };
 

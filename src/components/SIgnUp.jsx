@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
+import Navbar from './Navbar';
 const apiUrl = import.meta.env.VITE_API_URL;
 
 
@@ -48,6 +49,8 @@ const SignUp = () => {
   };
 
   return (
+    <>
+    <Navbar/>
     <div className="p-4 w-full h-screen rounded flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
         <h2 className="text-2xl font-bold mb-6 text-center">Sign Up</h2>
@@ -64,7 +67,7 @@ const SignUp = () => {
               className="w-full px-3 py-2 border rounded"
               placeholder="Email"
               required
-            />
+              />
           </div>
           <div className="mb-6">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
@@ -78,7 +81,7 @@ const SignUp = () => {
               className="w-full px-3 py-2 border rounded "
               placeholder="Password"
               required
-            />
+              />
           </div>
           <button type="submit" className="w-full mb-2 bg-pink-500 hover:border-pink-300 border-2 text-white py-2 rounded hover:bg-white hover:text-pink-500">
             Sign Up
@@ -92,15 +95,16 @@ const SignUp = () => {
           <button
             type='button'
             onClick={signInGoogle}
-
+            
             className="w-full py-2 no-underline text-black-400 px-4 hover:text-pink hover:border-pink-400 flex flex-row items-center justify-center gap-2 text-md border-2  rounded-md  focus:outline-none  "
-          >
+            >
             <FcGoogle /> <span className=''>Sign up with Google</span>
           </button>
 
         </form>
       </div>
     </div>
+            </>
   );
 };
 

@@ -3,6 +3,7 @@ import profileImage from '../../assets/admin.jpg';
 import { Link, useNavigate, } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { PanelContext } from '../../context/PanelContext';
+import Layout from '../Layout';
 const apiUrl = import.meta.env.VITE_API_URL;
 const domain = import.meta.env.VITE_DOMAIN;
 
@@ -44,7 +45,7 @@ const AdminProfile = () => {
                     // Handle redirection or other actions on error
                 } else {
                     const data = await response.json();
-                    setFormData({fullName: `${data?.firstName} ${data?.lastName}` , email: data.email, profession: data.role })
+                    setFormData({fullName: data?.firstName  , email: data.email, profession: data.role })
                     console.log('admin data:', data);
                     // Handle successful data retrieval
                 }
@@ -71,7 +72,7 @@ const AdminProfile = () => {
 
 
     return (
-        <>
+        <Layout>
 
             <div className="justify-center items-start min-h-screen bg-gray-100 py-8 ml-[3rem] mr-[3rem]">
                 {/* Left Side - Profile Information */}
@@ -83,12 +84,12 @@ const AdminProfile = () => {
 
 
                     {
-                        formData?.fullName ?
+                        formData.fullName ?
                             (
                                 <h2 className="text-2xl font-bold ">Hello, {formData.fullName}</h2>
                             )
 
-                            : "Hello, Admin"
+                            : <h2 className="text-2xl font-bold ">Hello, Admin</h2>
 
                     }
 
@@ -106,7 +107,7 @@ const AdminProfile = () => {
                 <div className="flex flex-col items-center   mx-auto">
                     {/* Edit Form */}
                     <form className="mt-8 w-1/2 space-y-4">
-                        {formData?.fullName ?
+                        {formData.fullName ?
 
                             <div className="flex items-center">
                                 <label className="w-[15rem] text-gray-700 ml-[2rem]">Full Name:</label>
@@ -161,7 +162,7 @@ const AdminProfile = () => {
                 </div>
             </div>
 
-        </>
+        </Layout>
     )
 }
 

@@ -1,10 +1,11 @@
 import React from 'react'
+import Layout from '../Layout'
 
 const Banner = () => {
   return (
-    <div>
+    <Layout>
       Banner to be added
-    </div>
+    </Layout>
   )
 }
 

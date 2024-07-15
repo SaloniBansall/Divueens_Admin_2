@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Swal from 'sweetalert2'
 import { useNavigate, useParams } from 'react-router-dom'
+import Layout from './Layout';
 const apiUrl = import.meta.env.VITE_API_URL;
 
 const ChangeProduct = () => {
@@ -111,7 +112,7 @@ const ChangeProduct = () => {
     };
 
     return (
-        <>
+        <Layout>
 
             <div className="">
                 <h2 className="text-3xl text-center font-semibold mb-4">Update Product</h2>
@@ -172,7 +173,7 @@ const ChangeProduct = () => {
             </div>
 
 
-        </>
+        </Layout>
     )
 }
 

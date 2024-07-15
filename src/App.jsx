@@ -13,6 +13,8 @@ import ProtectedRoute from './components/ProtectedRoute'
 import { PanelContext } from './context/PanelContext'
 import Navbar from './components/Navbar'
 import NotAuthorizedPage from './components/NotAuthorizedPage'
+import Categories from './components/category/categories'
+import Footer from './components/category/footer'
 
 
 function App() {

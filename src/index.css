@@ -1,3 +1,25 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+
+
+
+::-webkit-scrollbar {
+    @apply w-2;
+  }
+  
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+  }
+  
+ 
+  ::-webkit-scrollbar-thumb {
+    @apply bg-pink-400 rounded-full;
+  }
+  
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-pink-500;
+  }

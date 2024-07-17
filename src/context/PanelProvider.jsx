@@ -14,34 +14,34 @@ const PanelProvider = ({children}) => {
  
 
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
+  // useEffect(() => {
+  //   const token = localStorage.getItem('token');
+  //   if (token) {
       
-      fetch(`${apiUrl}/auth/verify-token`, {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      })
-        .then(response => response.json())
-        .then(data => {
-          if (data.valid) {
-            setIsAuthenticated(true);
+  //     fetch(`${apiUrl}/auth/verify-token`, {
+  //       headers: {
+  //         'Authorization': `Bearer ${token}`
+  //       }
+  //     })
+  //       .then(response => response.json())
+  //       .then(data => {
+  //         if (data.valid) {
+  //           setIsAuthenticated(true);
  
-          } 
-          // else {
-          //   localStorage.removeItem('token');
-          //   setIsAuthenticated(false);
+  //         } 
+  //         else {
+  //           localStorage.removeItem('token');
+  //           setIsAuthenticated(false);
            
-          // }
-        })
-        .catch(error => {
-          console.error('Error verifying token:', error);
+  //         }
+  //       })
+  //       .catch(error => {
+  //         console.error('Error verifying token:', error);
         
-          // setIsAuthenticated(false);
-        });
-    }
-  }, [apiUrl]);
+  //         setIsAuthenticated(false);
+  //       });
+  //   }
+  // }, [apiUrl]);
 
 
 
@@ -57,9 +57,6 @@ const PanelProvider = ({children}) => {
       showConfirmButton: false,
       timer: 1500
   });
-    //  navigator("/login")
-    window.location.href = '/login'; // Redirect to login or any other page
-    
   };
 
 

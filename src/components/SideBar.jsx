@@ -21,7 +21,7 @@ const SideBar = () => {
                     to={"/"}
                     className={`py-2 px-4  underline-offset-8 hover:underline ${location.pathname==="/" ? "text-pink-500" : "" }   focus:outline-none`}
                 >
-                    Product List
+                    Selections
                 </Link>
                 <Link
 
@@ -37,7 +37,7 @@ const SideBar = () => {
                     to={"/categories"}
                     className={`py-2 px-4  underline-offset-8 hover:underline ${location.pathname==="/categories" ? "text-pink-500" : "" }   focus:outline-none`}
                 >
-                    categories
+                    Categories
                 </Link>
 
                 <Link
@@ -46,7 +46,7 @@ const SideBar = () => {
                     to={"/orders"}
                     className={`py-2 px-4  underline-offset-8 hover:underline ${location.pathname==="/orders" ? "text-pink-500" : "" }   focus:outline-none`}
                 >
-                    orders
+                    Orders
                 </Link>
 
 

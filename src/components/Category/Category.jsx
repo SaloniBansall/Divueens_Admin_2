@@ -66,11 +66,11 @@ const Category = () => {
 
 <div className="container mx-auto px-12 mt-[1rem] mb-[1rem]">
   <div className="flex items-center mb-4">
-    <FaList className="text-2xl text-pink-600 mr-2" />
+    <FaList className="text-2xl text-pink-500 mr-2" />
     <h2 className="text-2xl text-black-500">CATEGORIES</h2>
     <button
       onClick={handleAddCategory}
-      className="ml-auto flex items-center bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-500 focus:outline-none"
+      className="ml-auto flex items-center bg-pink-400 text-white px-4 py-2 rounded-md hover:bg-pink-500 focus:outline-none"
     >
       <FaPlus className="mr-2" />
       Add Category

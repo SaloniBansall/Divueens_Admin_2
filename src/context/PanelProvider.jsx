@@ -1,47 +1,46 @@
 import React, { useEffect, useState } from 'react'
 import { PanelContext } from './PanelContext'
-import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
 const PanelProvider = ({children}) => {
 
-  const navigator = useNavigate()
+  // const navigator = useNavigate()
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   //  making this function global to check admin or a user
  
 
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
+  // useEffect(() => {
+  //   const token = localStorage.getItem('token');
+  //   if (token) {
       
-      fetch(`${apiUrl}/auth/verify-token`, {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      })
-        .then(response => response.json())
-        .then(data => {
-          if (data.valid) {
-            setIsAuthenticated(true);
+  //     fetch(`${apiUrl}/auth/verify-token`, {
+  //       headers: {
+  //         'Authorization': `Bearer ${token}`
+  //       }
+  //     })
+  //       .then(response => response.json())
+  //       .then(data => {
+  //         if (data.valid) {
+  //           setIsAuthenticated(true);
  
-          } 
-          // else {
-          //   localStorage.removeItem('token');
-          //   setIsAuthenticated(false);
+  //         } 
+  //         else {
+  //           localStorage.removeItem('token');
+  //           setIsAuthenticated(false);
            
-          // }
-        })
-        .catch(error => {
-          console.error('Error verifying token:', error);
+  //         }
+  //       })
+  //       .catch(error => {
+  //         console.error('Error verifying token:', error);
         
-          // setIsAuthenticated(false);
-        });
-    }
-  }, [apiUrl]);
+  //         setIsAuthenticated(false);
+  //       });
+  //   }
+  // }, [apiUrl]);
 
 
 
@@ -57,14 +56,11 @@ const PanelProvider = ({children}) => {
       showConfirmButton: false,
       timer: 1500
   });
-    //  navigator("/login")
-    window.location.href = '/login'; // Redirect to login or any other page
-    
   };
 
 
   return (
-    <PanelContext.Provider value={{isAuthenticated,  setIsAuthenticated, logout}}>
+    <PanelContext.Provider value={{isAuthenticated,  setIsAuthenticated, checkAuthStatus, logout}}>
       { children }
     </PanelContext.Provider>
   )

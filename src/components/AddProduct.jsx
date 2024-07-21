@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom'
+import Layout from './Layout';
 const apiUrl = import.meta.env.VITE_API_URL;
 
 const AddProduct = () => {
-    
-    let navigator=useNavigate()
+
+    let navigator = useNavigate()
 
     const [formData, setFormData] = useState({
         name: '',
@@ -34,7 +35,7 @@ const AddProduct = () => {
         fetch(`${apiUrl}/api/products/`, {
             method: "post",
             // body: JSON.stringify(form),
-            headers:{
+            headers: {
                 // 'auth-token': localStorage.getItem('token')
                 'Authorization': `Bearer ${token}`,
             },
@@ -78,58 +79,59 @@ const AddProduct = () => {
         });
     };
     return (
-       
-        <div className="max-w-sm mx-auto my-8 p-4 bg-white rounded shadow-lg">
-        <h2 className="text-lg font-semibold mb-4">Add Product</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
-            <label className="block text-sm font-medium text-gray-700">Name</label>
-            <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                required
-            />
+        <Layout>
+            <div className="max-w-sm mx-auto my-8 p-4 bg-white rounded shadow-lg">
+                <h2 className="text-lg font-semibold mb-4">Add Product</h2>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                    <label className="block text-sm font-medium text-gray-700">Name</label>
+                    <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                        required
+                    />
 
-            <label className="block text-sm font-medium text-gray-700">Price</label>
-            <input
-                type="number"
-                name="price"
-                value={formData.price}
-                onChange={handleChange}
-                className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                required
-            />
+                    <label className="block text-sm font-medium text-gray-700">Price</label>
+                    <input
+                        type="number"
+                        name="price"
+                        value={formData.price}
+                        onChange={handleChange}
+                        className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                        required
+                    />
 
-            <label className="block text-sm font-medium text-gray-700">Description</label>
-            <textarea
-                rows="1"
-                name="description"
-                value={formData.description}
-                onChange={handleChange}
-                className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                required
-            ></textarea>
+                    <label className="block text-sm font-medium text-gray-700">Description</label>
+                    <textarea
+                        rows="1"
+                        name="description"
+                        value={formData.description}
+                        onChange={handleChange}
+                        className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                        required
+                    ></textarea>
 
-            <label className="block text-sm font-medium text-gray-700">Image</label>
-            <input
-                type="file"
-                // accept="image/*"
-                name="image"
-                onChange={handleImageChange}
-                className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                required
-            />
+                    <label className="block text-sm font-medium text-gray-700">Image</label>
+                    <input
+                        type="file"
+                        // accept="image/*"
+                        name="image"
+                        onChange={handleImageChange}
+                        className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                        required
+                    />
 
-            <button
-                type="submit"
-                className="bg-pink-500 text-white w-full py-2 px-4 border border-transparent rounded-md shadow-sm   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-                Add 
-            </button>
-        </form>
-    </div>
+                    <button
+                        type="submit"
+                        className="bg-pink-500 text-white w-full py-2 px-4 border border-transparent rounded-md shadow-sm   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    >
+                        Add
+                    </button>
+                </form>
+            </div>
+        </Layout>
     )
 }
 

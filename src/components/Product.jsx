@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { BsPlusCircle } from 'react-icons/bs'
+import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom'
+import Layout from './Layout';
 const apiUrl = import.meta.env.VITE_API_URL;
 
 
@@ -19,60 +21,54 @@ const Product = () => {
 
     // deleteProduct
     const deleteProduct = (_id) => {
+        console.log('id: vite', _id)
         const token = localStorage.getItem('token')
-        // console.log(_id, localStorage.getItem('token'),":id")
         fetch(`${apiUrl}/api/delete/${_id}`, {
             method: "delete",
             headers: {
-                // 'Content-Type': 'application/json',
-                // 'auth-token': localStorage.getItem('token')
                 'Authorization': `Bearer ${token}`,
             },
 
         }).then((res) => {
             res.json().then(data => {
-                // setProductList(data)
                 if (productList.length > 0) {
-                    setProductList(prevProducts => prevProducts.filter(product => product._id !== data._id));
-                    console.log(data, "product deleted")
+                    setProductList(prevProducts => prevProducts.filter(product => product._id !== _id));
+                    console.log(data._id, "product deleted")
                 }
             })
         }).catch(e => { console.log('Error:', e) })
     }
 
-   
+
 
 
     return (
 
-        <>
+        <Layout>
             <div className="w-full h-full">
-
-                <h2 className='text-2xl  p-4 text-center font-semibold'>List Of Products</h2>
-
-                {/* <div className="flex flex-row items-center px-8 "> */}
-
-                <div className='w-full flex flex-wrap justify-center items-center gap-2 py-2'>
+                <h2 className="text-2xl p-4 text-center font-semibold">LIST OF PRODUCTS</h2>
+                <div className="w-full flex flex-wrap justify-center items-center gap-4 py-4">
                     {productList?.map((product, index) => (
-                        <div key={index} className="max-w-[200px] bg-white border-2 p-4">
-                            <h2 className='font-semibold'>{product.name}</h2>
-                            {/* <h2>{product.description}</h2> */}
-                            <img src={product.imageUrl} alt="" />
-                            <span>Rs.{product.price}</span>
-
-                            <div className="mt-2 flex flex-row justify-center  gap-2 border-t-2 p-2">
-
-                                <button onClick={() => { deleteProduct(product._id) }} className='px-2 py-1 hover:bg-white hover:border-2 hover:text-black bg-red-500  text-white rounded'>delete</button>
-                                <Link to={`/update/${product._id}`} className='px-2 py-1  hover:bg-white hover:border-2 hover:text-black  bg-pink-500 text-white rounded'>update</Link>
+                        <div key={index} className="w-[200px] bg-white border rounded-lg shadow-md p-4 transition duration-300 hover:shadow-lg flex flex-col items-center">
+                            <h2 className="font-semibold text-lg mb-2 text-center">{product.name}</h2>
+                            <img src={product.imageUrl} alt={product.name} className="w-full h-40 object-cover mb-2 rounded-md" />
+                            <span className="block text-lg font-semibold text-gray-800 mb-2">Rs.{product.price}</span>
+                            <div className="mt-2 flex flex-row justify-around gap-2 border-t-2 pt-2 w-full">
+                                <Link to={`/update/${product._id}`} className='hover:text-yellow-600 text-yellow-400'>
+                                    <FaEdit />
+                                </Link>
+                                <button onClick={() => { deleteProduct(product._id) }} className='hover:text-red-600 text-red-500'>
+                                    <FaTrashAlt />
+                                </button>
                             </div>
                         </div>
-                    ))
-                    }
-                    <Link to={"/add"} className='text-3xl text-pink-500' ><BsPlusCircle /> </Link>
+                    ))}
+                    <Link to={"/add"} className="text-3xl text-pink-400 hover:text-pink-600">
+                        <BsPlusCircle />
+                    </Link>
                 </div>
-                {/* </div> */}
             </div>
-        </>
+        </Layout>
     )
 }
 

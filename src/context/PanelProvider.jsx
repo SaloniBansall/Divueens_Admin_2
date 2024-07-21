@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { PanelContext } from './PanelContext'
-import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
 const PanelProvider = ({children}) => {
 
-  const navigator = useNavigate()
+  // const navigator = useNavigate()
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   //  making this function global to check admin or a user
@@ -61,7 +60,7 @@ const PanelProvider = ({children}) => {
 
 
   return (
-    <PanelContext.Provider value={{isAuthenticated,  setIsAuthenticated, logout}}>
+    <PanelContext.Provider value={{isAuthenticated,  setIsAuthenticated, checkAuthStatus, logout}}>
       { children }
     </PanelContext.Provider>
   )

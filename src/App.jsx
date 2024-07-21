@@ -12,6 +12,7 @@ import { PanelContext } from './context/PanelContext'
 import NotAuthorizedPage from './components/NotAuthorizedPage'
 import NotFound from './components/NotFound'
 import Category from './components/Category/Category'
+
 import Footer from './components/Footer'
 import Orders from './components/Order/Orders'
 import OrderDetails from './components/Order/OrderDetails'
@@ -19,11 +20,12 @@ import ShopItems from './components/Shopping/ShopItems'
 
 
 
+
 function App() {
 
   const navigator = useNavigate()
 
-  const { isAuthenticated, setIsAuthenticated, } = useContext(PanelContext)
+  // const { isAuthenticated, setIsAuthenticated, } = useContext(PanelContext)
 
   
   useEffect(() => {
@@ -37,13 +39,12 @@ function App() {
       // localStorage.getItem('token')
       console.log(token, 'use this token')
 
-      setIsAuthenticated(true)
       // window.location.href = '/admin-profile'; 
       navigator("/admin-profile")
     }
-  }, [setIsAuthenticated])
+  }, [])
 
-  console.log(isAuthenticated, 'authenticated')
+  // console.log(isAuthenticated, 'authenticated')
 
   return (
     <>
@@ -61,7 +62,6 @@ function App() {
         <Route exact path="/add" element={<ProtectedRoute> <AddProduct /> </ProtectedRoute>} />
         <Route exact path="/update/:_id" element={<ProtectedRoute> <ChangeProduct /> </ProtectedRoute>} />
         <Route exact path="/admin-profile" element={<ProtectedRoute> <AdminProfile /> </ProtectedRoute>} />
-        <Route exact path="/add" element={<ProtectedRoute> <Footer /> </ProtectedRoute>} />
 
 
          {/* pending work*/}

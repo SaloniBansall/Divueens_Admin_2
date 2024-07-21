@@ -46,26 +46,26 @@ const Product = () => {
 
         <Layout>
             <div className="w-full h-full">
-
-                <h2 className='text-2xl  p-4 text-center font-semibold'>LIST OF PRODUCTS</h2>
-
-                <div className='w-full flex flex-wrap justify-center items-center gap-2 py-2'>
+                <h2 className="text-2xl p-4 text-center font-semibold">LIST OF PRODUCTS</h2>
+                <div className="w-full flex flex-wrap justify-center items-center gap-4 py-4">
                     {productList?.map((product, index) => (
-                        <div key={index} className="max-w-[200px] bg-white border-2 p-4">
-                            <h2 className='font-semibold'>{product.name}</h2>
-                            {/* <h2>{product.description}</h2> */}
-                            <img src={product.imageUrl} alt="" />
-                            <span>Rs.{product.price}</span>
-
-                            <div className="mt-2 flex flex-row justify-around gap-2 border-t-2 p-2">
-
-                                <Link to={`/update/${product._id}`} className='hover:text-yellow-600 text-yellow-400'> <FaEdit /> </Link>
-                                <button onClick={() => { deleteProduct(product._id) }} className='hover:text-red-600  text-red-500 '> <FaTrashAlt /> </button>
+                        <div key={index} className="w-[200px] bg-white border rounded-lg shadow-md p-4 transition duration-300 hover:shadow-lg flex flex-col items-center">
+                            <h2 className="font-semibold text-lg mb-2 text-center">{product.name}</h2>
+                            <img src={product.imageUrl} alt={product.name} className="w-full h-40 object-cover mb-2 rounded-md" />
+                            <span className="block text-lg font-semibold text-gray-800 mb-2">Rs.{product.price}</span>
+                            <div className="mt-2 flex flex-row justify-around gap-2 border-t-2 pt-2 w-full">
+                                <Link to={`/update/${product._id}`} className='hover:text-yellow-600 text-yellow-400'>
+                                    <FaEdit />
+                                </Link>
+                                <button onClick={() => { deleteProduct(product._id) }} className='hover:text-red-600 text-red-500'>
+                                    <FaTrashAlt />
+                                </button>
                             </div>
                         </div>
-                    ))
-                    }
-                    <Link to={"/add"} className='text-3xl text-pink-400' ><BsPlusCircle /> </Link>
+                    ))}
+                    <Link to={"/add"} className="text-3xl text-pink-400 hover:text-pink-600">
+                        <BsPlusCircle />
+                    </Link>
                 </div>
             </div>
         </Layout>

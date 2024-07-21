@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import AddProduct from './components/AddProduct'
 import Product from './components/Product'
@@ -8,7 +8,6 @@ import Banner from './components/Banner/Banner'
 import ChangeProduct from './components/ChangeProduct'
 import AdminProfile from './components/admin/AdminProfile'
 import ProtectedRoute from './components/ProtectedRoute'
-import { PanelContext } from './context/PanelContext'
 import NotAuthorizedPage from './components/NotAuthorizedPage'
 import NotFound from './components/NotFound'
 import Category from './components/Category/Category'
@@ -36,7 +35,6 @@ function App() {
       // localStorage.getItem('token')
       console.log(token, 'use this token')
 
-      setIsAuthenticated(true)
       // window.location.href = '/admin-profile'; 
       navigator("/admin-profile")
     }

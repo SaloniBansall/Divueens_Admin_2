@@ -1,6 +1,7 @@
 import React from 'react'
 import SideBar from './SideBar'
 import Navbar from './Navbar'
+import Footer from './Footer'
 
 const Layout = ({ children }) => {
     return (
@@ -8,16 +9,17 @@ const Layout = ({ children }) => {
 
         <div className="w-full h-auto">
             <Navbar />
-            <div className="flex h-full  sticky top-0  flex-row gap-4 justify-around">
+            <div className="flex h-full  bg-gray-50   flex-row gap-4 justify-around">
 
                 <SideBar />
 
-                <div className="w-full bg-gray-100">
+                <div className="w-full">
                     <div className=" rounded ">
                         {children}
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
 
 

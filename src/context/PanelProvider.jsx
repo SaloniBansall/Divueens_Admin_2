@@ -12,44 +12,35 @@ const PanelProvider = ({children}) => {
   //  making this function global to check admin or a user
  
 
-    const checkAuthStatus = () => {
 
-   
-    const token = localStorage.getItem('token');
-    if (token) {
-
-      // setIsAuthenticated(true)
+  // useEffect(() => {
+  //   const token = localStorage.getItem('token');
+  //   if (token) {
       
-      // fetch(`${apiUrl}/auth/verify-token`, {
-      //   headers: {
-      //     'Authorization': `Bearer ${token}`
-      //   }
-      // })
-      //   .then(response => response.json())
-      //   .then(data => {
-      //     if (data.valid) {
-      //       console.log(data, 'data')
-      //       setIsAuthenticated(true);
+  //     fetch(`${apiUrl}/auth/verify-token`, {
+  //       headers: {
+  //         'Authorization': `Bearer ${token}`
+  //       }
+  //     })
+  //       .then(response => response.json())
+  //       .then(data => {
+  //         if (data.valid) {
+  //           setIsAuthenticated(true);
  
-      //     } 
-      //     else {
-      //       console.log('removing token from client')
-      //       localStorage.removeItem('token');
-      //       setIsAuthenticated(false);
+  //         } 
+  //         else {
+  //           localStorage.removeItem('token');
+  //           setIsAuthenticated(false);
            
-      //     }
-      //   })
-      //   .catch(error => {
-      //     console.error('Error verifying token:', error);
+  //         }
+  //       })
+  //       .catch(error => {
+  //         console.error('Error verifying token:', error);
         
-      //     setIsAuthenticated(false);
-      //   });
-    }else{
-      setIsAuthenticated(false)
-    }
-
-  }
- 
+  //         setIsAuthenticated(false);
+  //       });
+  //   }
+  // }, [apiUrl]);
 
 
 
@@ -57,9 +48,14 @@ const PanelProvider = ({children}) => {
   const logout = () => {
     localStorage.removeItem('token');
     setIsAuthenticated(false);
-    // window.location.href = '/login'; // Redirect to login or any other page
-     navigator("/login")
-    
+
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "logged out successfully!",
+      showConfirmButton: false,
+      timer: 1500
+  });
   };
 
 

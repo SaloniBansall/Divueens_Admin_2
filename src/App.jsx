@@ -62,7 +62,7 @@ function App() {
         <Route exact path="/add" element={<ProtectedRoute> <AddProduct /> </ProtectedRoute>} />
         <Route exact path="/update/:_id" element={<ProtectedRoute> <ChangeProduct /> </ProtectedRoute>} />
         <Route exact path="/admin-profile" element={<ProtectedRoute> <AdminProfile /> </ProtectedRoute>} />
-        <Route exact path="/add" element={<ProtectedRoute> <Footer /> </ProtectedRoute>} /> 
+        <Route exact path="/add" element={<ProtectedRoute> <Footer /> </ProtectedRoute>} />
 
 
          {/* pending work*/}
@@ -70,7 +70,7 @@ function App() {
         <Route exact path="/categories" element={<ProtectedRoute> <Category/> </ProtectedRoute> }/>
         <Route exact path="/orders" element={<ProtectedRoute> <Orders/> </ProtectedRoute> }/>
         <Route exact path="/orders/:id" element={<ProtectedRoute> <OrderDetails/> </ProtectedRoute> }/>
-        <Route exact path="/shopping" element={<ProtectedRoute> <ShopItems/> </ProtectedRoute> }/> 
+        <Route exact path="/shopping" element={<ProtectedRoute> <ShopItems/> </ProtectedRoute> }/>  
 
 
 

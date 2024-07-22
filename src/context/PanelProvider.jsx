@@ -10,7 +10,7 @@ const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const logout = () => {
     localStorage.removeItem('token');
-    setIsAuthenticated(false);
+    // setIsAuthenticated(false);
 
     Swal.fire({
       position: "center",

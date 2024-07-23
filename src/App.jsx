@@ -60,11 +60,15 @@ function App() {
         <Route exact path="/admin-profile" element={<ProtectedRoute> <AdminProfile /> </ProtectedRoute>} />
       
          {/* pending work*/}
-        <Route exact path="/banner" element={<ProtectedRoute> <Banner /> </ProtectedRoute>} />
+         <Route exact path="/banner" element={<ProtectedRoute> <Banner /> </ProtectedRoute>} />
         <Route exact path="/categories" element={<ProtectedRoute> <Category/> </ProtectedRoute> }/>
         <Route exact path="/orders" element={<ProtectedRoute> <Orders/> </ProtectedRoute> }/>
         <Route exact path="/orders/:id" element={<ProtectedRoute> <OrderDetails/> </ProtectedRoute> }/>
-        <Route exact path="/shopping" element={<ProtectedRoute> <ShopItems/> </ProtectedRoute> }/>
+        <Route exact path="/shopping" element={<ProtectedRoute> <ShopItems/> </ProtectedRoute> }/>  
+
+
+
+
 
         {/* chatching routes which are not defined */}
         <Route path="*" element={<NotFound />} />

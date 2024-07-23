@@ -54,6 +54,15 @@ const SideBar = () => {
                         Orders
                     </Link>
 
+                    <Link
+
+
+                        to={"/users"}
+                        className={`py-2 px-4  underline-offset-8 hover:underline ${location.pathname === "/users" ? "text-pink-500" : ""}   focus:outline-none`}
+                    >
+                        Users
+                    </Link>
+
                 </div>
             </div>
         </>

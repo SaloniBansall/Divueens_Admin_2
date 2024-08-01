@@ -73,7 +73,7 @@ const Orders = () => {
         <div className="container mx-auto px-4 py-4 sm:px-6 md:px-8 lg:px-12">
           <h2 className='text-3xl mb-2 place-content-center'>ORDERS</h2>
           <table className="w-full border-separate border border-white text-center">
-            <thead className="bg-pink-300 border border-white">
+            <thead className="bg-rose-300 border border-white">
               <tr className="border border-white">
                 <th className="px-4 py-2">Order ID</th>
                 <th className="px-4 py-2">Order Status</th>
@@ -90,7 +90,7 @@ const Orders = () => {
                     <select
                       value={order.status}
                       onChange={(e) => handleStatusChange(order._id, e.target.value)}
-                      className={`px-4 py-2 bg-inherit hover:border-pink-300 hover:border rounded-md`}
+                      className={`px-4 py-2 bg-inherit hover:border-rose-300 hover:border rounded-md`}
                     >
                       <option value="pending">Pending</option>
                       <option value="failed">Failed</option>
@@ -103,7 +103,7 @@ const Orders = () => {
                   <td className="px-4 py-2 border border-white bg-white text-slate-200">
                     <Link
                       to={`/orders/${order._id}`}
-                      className="hover:border-pink-500 border-2 border-pink-300 text-pink-500 font-md py-2 px-4 rounded"
+                      className="hover:border-rose-500 border-2 border-rose-300 text-rose-500 font-md py-2 px-4 rounded"
                     >
                       View Details
                     </Link>

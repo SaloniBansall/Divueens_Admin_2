@@ -127,7 +127,7 @@ const ChangeProduct = () => {
 
                         value={formData.name}
                         onChange={handleChange}
-                        className="block w-full px-3 py-2  border-grat-300 border-b-2  focus:outline-none focus:ring-pink-500 focus:border-pink-500"
+                        className="block w-full px-3 py-2  border-grat-300 border-b-2  focus:outline-none focus:ring-rose-500 focus:border-rose-500"
 
                     />
 
@@ -138,7 +138,7 @@ const ChangeProduct = () => {
 
                         value={formData.price}
                         onChange={handleChange}
-                        className="block w-full px-3 py-2 border-b-2 border-gray-300   focus:outline-none focus:ring-pink-500 focus:border-pink-500"
+                        className="block w-full px-3 py-2 border-b-2 border-gray-300   focus:outline-none focus:ring-rose-500 focus:border-rose-500"
 
                     />
 
@@ -149,7 +149,7 @@ const ChangeProduct = () => {
 
                         value={formData.description}
                         onChange={handleChange}
-                        className="block w-full px-3 py-2 border-b-2 border-gray-300   focus:outline-none focus:ring-pink-500 focus:border-pink-500"
+                        className="block w-full px-3 py-2 border-b-2 border-gray-300   focus:outline-none focus:ring-rose-500 focus:border-rose-500"
 
                     ></textarea>
 
@@ -159,13 +159,13 @@ const ChangeProduct = () => {
                         // accept="image/*"
                         name="image"
                         onChange={handleImageChange}
-                        className="block w-full px-3 py-2 border-b-2 border-gray-300   focus:outline-none focus:ring-pink-500 focus:border-pink-500"
+                        className="block w-full px-3 py-2 border-b-2 border-gray-300   focus:outline-none focus:ring-rose-500 focus:border-rose-500"
 
                     />
 
                     <button
                         type="submit"
-                        className="w-full py-2 px-4 border border-transparent rounded-md  text-white bg-pink-500 hover:bg-[#ffffff] text-color[#ff59cd] focus:outline-none focus:ring-2 focus:ring-offset-2 "
+                        className="w-full py-2 px-4 border border-transparent rounded-md  text-white bg-rose-500 hover:bg-[#ffffff] text-color[#ff59cd] focus:outline-none focus:ring-2 focus:ring-offset-2 "
                     >
                          Update
                     </button>

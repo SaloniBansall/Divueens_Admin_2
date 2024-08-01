@@ -97,7 +97,7 @@ const OrderTable = () => {
                 <td className="px-4 py-2 border border- bg-white,text-slate-200">
                   <Link
                     to={`/orders/:id}`}
-                    className="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 font-bold py-2 px-4 rounded"
+                    className="bg-gradient-to-r from-green-400 to-blue-500 hover:from-rose-500 hover:to-yellow-500 font-bold py-2 px-4 rounded"
                   >
                     View Details
                   </Link>

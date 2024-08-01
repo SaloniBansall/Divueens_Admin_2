@@ -125,7 +125,7 @@ const Login = () => {
           </div>
           <button
             type="submit"
-            className="w-full mb-2 bg-pink-500 text-white py-2 rounded hover:bg-white hover:border-pink-300 border-2 hover:text-pink-500"
+            className="w-full mb-2 bg-rose-500 text-white py-2 rounded hover:bg-white hover:border-rose-300 border-2 hover:text-rose-500"
             disabled={loading} // Disable button while loading
           >
             Login
@@ -137,7 +137,7 @@ const Login = () => {
           <button
             type='button'
             onClick={signInGoogle}
-            className="w-full py-2 no-underline text-black-400 px-4 hover:text-pink hover:border-pink-300 flex flex-row items-center justify-center gap-2 text-md border-2 rounded-md focus:outline-none"
+            className="w-full py-2 no-underline text-black-400 px-4 hover:text-rose hover:border-rose-300 flex flex-row items-center justify-center gap-2 text-md border-2 rounded-md focus:outline-none"
           >
             <FcGoogle /> <span>Sign in with Google</span>
           </button>

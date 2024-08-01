@@ -120,7 +120,7 @@ const SIgnUp = () => {
                 required
               />
             </div>
-            <button type="submit" className="w-full mb-2 bg-pink-500 hover:border-pink-300 border-2 text-white py-2 rounded hover:bg-white hover:text-pink-500">
+            <button type="submit" className="w-full mb-2 bg-rose-500 hover:border-rose-300 border-2 text-white py-2 rounded hover:bg-white hover:text-rose-500">
               Sign Up
             </button>
 
@@ -133,7 +133,7 @@ const SIgnUp = () => {
               type='button'
               onClick={signInGoogle}
 
-              className="w-full py-2 no-underline text-black-400 px-4 hover:text-pink hover:border-pink-400 flex flex-row items-center justify-center gap-2 text-md border-2  rounded-md  focus:outline-none  "
+              className="w-full py-2 no-underline text-black-400 px-4 hover:text-rose hover:border-rose-400 flex flex-row items-center justify-center gap-2 text-md border-2  rounded-md  focus:outline-none  "
             >
               <FcGoogle /> <span className=''>Sign up with Google</span>
             </button>

@@ -93,7 +93,7 @@ const ShopItems = () => {
               <img src={product.imageUrl} alt={product.name} className="w-32 h-32 object-cover mb-2 rounded-md" />
               <span className='block text-lg font-semibold text-gray-800 mb-2'>Rs.{product.price}</span>
 
-              <button onClick={() => handlePayment(product)} className='w-full bg-pink-400 text-white py-2 rounded-md flex justify-center items-center gap-2 hover:bg-white hover:text-pink-400 transition duration-300'>
+              <button onClick={() => handlePayment(product)} className='w-full bg-rose-400 text-white py-2 rounded-md flex justify-center items-center gap-2 hover:bg-white hover:text-rose-400 transition duration-300'>
                 <FaShoppingCart />
                 Buy
               </button>

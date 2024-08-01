@@ -63,7 +63,7 @@ const Product = () => {
                             </div>
                         </div>
                     ))}
-                    <Link to={"/add"} className="text-3xl text-pink-400 hover:text-pink-600">
+                    <Link to={"/add"} className="text-3xl text-rose-400 hover:text-rose-600">
                         <BsPlusCircle />
                     </Link>
                 </div>

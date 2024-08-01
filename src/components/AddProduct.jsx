@@ -125,7 +125,7 @@ const AddProduct = () => {
 
                     <button
                         type="submit"
-                        className="bg-pink-500 text-white w-full py-2 px-4 border border-transparent rounded-md shadow-sm   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        className="bg-rose-500 text-white w-full py-2 px-4 border border-transparent rounded-md shadow-sm   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
                         Add
                     </button>

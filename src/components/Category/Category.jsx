@@ -75,11 +75,11 @@ const Category = () => {
 
         <div className="container mx-auto px-4 py-4 mt-[.5rem] mb-[3rem]">
           <div className="flex items-center mb-4">
-            <FaList className="text-2xl text-pink-500 mr-2" />
+            <FaList className="text-2xl text-rose-500 mr-2" />
             <h2 className="text-2xl">CATEGORIES</h2>
             <button
               onClick={handleAddCategory}
-              className="ml-auto flex items-center bg-pink-400 text-white px-4 py-2 rounded-md hover:bg-pink-500 focus:outline-none"
+              className="ml-auto flex items-center bg-rose-400 text-white px-4 py-2 rounded-md hover:bg-rose-500 focus:outline-none"
             >
               <FaPlus className="mr-2" />
               Add Category
@@ -96,7 +96,7 @@ const Category = () => {
               />
               <button
                 type="submit"
-                className="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-400"
+                className="bg-rose-500 text-white px-4 py-2 rounded-md hover:bg-rose-400"
               >
                 Add
               </button>
@@ -104,7 +104,7 @@ const Category = () => {
           )}
           <div className="bg-white shadow-md rounded-lg my-6">
             {/* Header Row */}
-            <div className="flex items-center bg-pink-300 px-4 py-2">
+            <div className="flex items-center bg-rose-300 px-4 py-2">
               <div className="w-1/12 text-center text-white">S.No</div> {/* Serial number column */}
               <div className="w-5/12 px-4 text-white">NAME</div>
               <div className="w-5/12 flex justify-end text-white">FEATURES</div>
@@ -112,7 +112,7 @@ const Category = () => {
 
             {/* Category Rows */}
             {categories.map((category, index) => (
-              <div key={category._id} className="flex items-center border-b border-gray-200 hover:shadow-lg hover:shadow-pink-100">
+              <div key={category._id} className="flex items-center border-b border-gray-200 hover:shadow-lg hover:shadow-rose-200">
                 <div className="w-1/12 text-center px-4 py-2 text-gray-500">{index + 1}</div> {/* Display index + 1 for S.No */}
                 <div className="w-5/12 px-4 py-2 text-gray-500">
                   {editCategoryId === category._id ? (
@@ -123,7 +123,7 @@ const Category = () => {
                         onChange={(e) => setEditCategoryName(e.target.value)}
                         className="px-2 py-1 border rounded-md"
                       />
-                      <button type="submit" className="ml-2 bg-pink-500 text-white px-2 py-1 rounded-md hover:bg-pink-400">
+                      <button type="submit" className="ml-2 bg-rose-500 text-white px-2 py-1 rounded-md hover:bg-rose-400">
                         Save
                       </button>
                     </form>
@@ -139,7 +139,7 @@ const Category = () => {
                     <FaEdit />
                   </button>
                   <button
-                    className="text-red-500"
+                    className="text-rose-500"
                     onClick={() => handleDeleteCategory(category._id)}
                   >
                     <FaTrashAlt />

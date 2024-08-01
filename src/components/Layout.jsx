@@ -1,29 +1,29 @@
-import React from 'react'
-import SideBar from './SideBar'
-import Navbar from './Navbar'
-import Footer from './Footer'
+import React, { useState } from 'react';
+import SideBar from './SideBar';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 const Layout = ({ children }) => {
+    const [isSidebarOpen, setSidebarOpen] = useState(false);
+
+    const toggleSidebar = () => {
+        setSidebarOpen(!isSidebarOpen);
+    };
+
     return (
-
-
         <div className="w-full h-auto">
-            <Navbar />
-            <div className="flex h-full  bg-gray-50   flex-row gap-4 justify-around">
-
-                <SideBar />
-
+            <Navbar toggleSidebar={toggleSidebar} />
+            <div className="flex h-full bg-gray-50 flex-row gap-4 justify-around">
+                <SideBar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
                 <div className="w-full">
-                    <div className=" rounded ">
+                    <div className="rounded">
                         {children}
                     </div>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </div>
+    );
+};
 
-
-    )
-}
-
-export default Layout
+export default Layout;
